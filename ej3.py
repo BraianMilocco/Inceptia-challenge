@@ -10,3 +10,14 @@ def validate_discount_code(discount_code):
         if len(difference) <= 3:
             return True
     return False
+
+
+# En caso de que se quiera probar el codigo, descomentar las siguientes lineas
+
+# if __name__ == "__main__":
+#     discount_code = input("Ingrese el codigo de descuento: ")
+#     valid = validate_discount_code(discount_code)
+#     if valid:
+#         print("El codigo de descuento es valido")
+#     else:
+#         print("El codigo de descuento no es valido")

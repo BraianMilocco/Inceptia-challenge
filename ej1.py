@@ -1,9 +1,10 @@
+import os
 import requests
 class GeoAPI:
 
-    API_KEY = "d81015613923e3e435231f2740d5610b"
-    LAT = "-35.836948753554054"
-    LON = "-61.870523905384076"
+    API_KEY = os.environ.get("API_KEY", "")
+    LAT = os.environ.get("LAT", "")
+    LON = os.environ.get("LON", "")
     BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
     @classmethod
@@ -23,8 +24,13 @@ class GeoAPI:
 
             return response.json()["main"]["temp"] > 28
 
-        # Se pueden poner varios excepts para manejar distintos tipos de errores
+        # Se pueden poner varios excepts para manejar distintos tipos de errores mas especificos
         except Exception as generic_exception:
             # aca se puede loguear el error
-
             return False
+
+
+# En caso de que se quiera probar el codigo, descomentar las siguientes lineas
+
+# if __name__ == "__main__":
+#     print(GeoAPI.is_hot_in_pehuajo())
