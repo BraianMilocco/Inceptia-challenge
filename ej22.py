@@ -53,10 +53,11 @@ def is_product_available(product_name, quantity):
     y evitar un posible loop infinito, sin modificar la logica de la funcion"""
     if quantity < 1:
         return False
-    df = _PRODUCT_DF.loc[_PRODUCT_DF['product_name'].str.upper() == product_name.upper()]
-    if df.empty or df['quantity'].iloc[0] < quantity:
-        return False
-    return True
+    product = _PRODUCT_DF.loc[
+        (_PRODUCT_DF['product_name'].str.upper() == product_name.upper()) &
+        (_PRODUCT_DF['quantity'] >= quantity)
+    ]
+    return not product.empty
 
 
 
@@ -74,5 +75,6 @@ def is_product_available(product_name, quantity):
 #             available = is_product_available(product_name, quantity)
 #         print("El producto esta disponible")
 #     except Exception as e:
+#         print(e)
 #         print("No tiene mas intentos")
 #         exit()

@@ -11,8 +11,11 @@ def is_product_available(product_name, quantity):
     Se pasa a mayuscula el nombre del producto para evitar errores de tipeo"""
     if quantity < 1:
         return False
-    df = _PRODUCT_DF.loc[_PRODUCT_DF['product_name'].str.upper() == product_name.upper()]
-    return  (not df.empty and df['quantity'].iloc[0] >= quantity)
+    product = _PRODUCT_DF.loc[
+        (_PRODUCT_DF['product_name'].str.upper() == product_name.upper()) &
+        (_PRODUCT_DF['quantity'] >= quantity)
+    ]
+    return not product.empty
 
 
 # En caso de que se quiera probar solo este ejercicio, descomentar las siguientes lineas
