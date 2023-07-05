@@ -20,7 +20,23 @@ Cada archivo en este repositorio representa un ejercicio diferente del PDF adjun
 
    pip install -r requirements.txt
 
-## Ejecución de los ejercicios
+## Ejecución de los ejercicios en el "bot"
+El archivo bot.py contiene una simulacion del bot que sigue el flujo marcado en el diagrama. Se aplicaron algunas modificaciones 
+1. Navega al directorio del proyecto:
+
+   cd ruta_al_directorio_del_proyecto
+
+2. Ejecuta el archivo del bot
+
+   python bot.py
+
+   > Asegúrate de tener configurado el .env con la variable API_KEY
+   > Asegúrate de tener el entorno virtual activado antes de ejecutar el archivo.
+
+3. Completa los datos y/u Observa los resultados de salida para verificar si se cumple la tarea del ejercicio.
+
+
+## Ejecución de los ejercicios por separado
 
 Cada archivo en este repositorio representa un ejercicio diferente. Para probar cada ejercicio, sigue los siguientes pasos:
 
@@ -36,5 +52,6 @@ Cada archivo en este repositorio representa un ejercicio diferente. Para probar 
    > descomenta primero las líneas de código que estan debajo de:
     ''' # En caso de que se quiera probar el codigo, descomentar las siguientes lineas '''
    > Asegúrate de tener el entorno virtual activado antes de ejecutar el archivo.
+   > En el caso del ej1.py configura el .env con la API_KEY
 
-4. Completa los datos y/u Observa los resultados de salida para verificar si se cumple la tarea del ejercicio.
+3. Completa los datos y/u Observa los resultados de salida para verificar si se cumple la tarea del ejercicio.

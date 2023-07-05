@@ -17,7 +17,7 @@ def is_product_available(product_name, quantity):
     return True
 
 
-# En caso de que se quiera probar el codigo, descomentar las siguientes lineas
+# En caso de que se quiera probar solo este ejercicio, descomentar las siguientes lineas
 
 # if __name__ == "__main__":
 #     product_name = input("Ingrese el nombre del producto: ")

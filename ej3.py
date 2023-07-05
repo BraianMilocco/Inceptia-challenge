@@ -12,7 +12,7 @@ def validate_discount_code(discount_code):
     return False
 
 
-# En caso de que se quiera probar el codigo, descomentar las siguientes lineas
+# En caso de que se quiera probar solo este ejercicio, descomentar las siguientes lineas
 
 # if __name__ == "__main__":
 #     discount_code = input("Ingrese el codigo de descuento: ")
