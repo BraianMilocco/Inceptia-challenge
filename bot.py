@@ -4,8 +4,8 @@ from ej22 import is_product_available
 from ej3 import validate_discount_code
 
 """Simula el comportamiento del Bot presentado en el diagrama de flujo de la consigna
-Se agrega un contador de intentos para que el usuario no pueda intentar mas de 5 veces elegir un prodcuto y cantidad
-(utilizando el metodo is_product_available del ejercicio 22)
+Se utiliza el metodo is_product_available del ejercicio 22 para validar si el producto esta disponible
+(permitiendo un maximo de 5 intentos hasta tirar una excepcion)
 Se agrega un contador de intentos para que el usuario no pueda intentar mas de 5 veces un codigo de descuento
 (se simula desde el mismo bot)
 Se agrega un tiempo de espera para simular la espera de la respuesta del servidor
@@ -26,25 +26,21 @@ if __name__ == "__main__":
     except ValueError:
         print("La cantidad debe ser un numero")
         exit()
-    available = is_product_available(product_name, quantity)
-    if available["available"]:
-        print("El producto esta disponible")
-    attempts = available["attempts"]
-    attempts_left = available["attempts_left"]
-    while attempts_left > 0 and not available["available"]:
-        print(f"El producto no esta disponible, le quedan {available["attempts_left"]} intentos")
-        product_name = input("Ingrese el nombre del producto: ")
-        try:
-            quantity = int(input("Ingrese la cantidad del producto: "))
-        except ValueError:
-            print("La cantidad debe ser un numero")
-            exit()
-        available = is_product_available(product_name, quantity, attempts)
-        attempts = available["attempts"]
-        attempts_left = available["attempts_left"]
-    if not available["available"]:
-        print("El producto no esta disponible")
+    try:
+        available = is_product_available(product_name, quantity)
+        while not available:
+            print("El producto no esta disponible, pruebe nuevamente")
+            product_name = input("Ingrese el nombre del producto: ")
+            try:
+                quantity = int(input("Ingrese la cantidad del producto: "))
+            except ValueError:
+                print("La cantidad debe ser un numero")
+                exit()
+            available = is_product_available(product_name, quantity)
+    except Exception as e:
+        print("No tiene mas intentos")
         exit()
+    print("El producto esta disponible")
     client_code = input("Ingrese el codigo de descuento: ")
     valid_code = validate_discount_code(client_code)
     attempts = 1

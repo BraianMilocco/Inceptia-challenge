@@ -12,9 +12,7 @@ def is_product_available(product_name, quantity):
     if quantity < 1:
         return False
     df = _PRODUCT_DF.loc[_PRODUCT_DF['product_name'].str.upper() == product_name.upper()]
-    if df.empty or df['quantity'].iloc[0] < quantity:
-        return False
-    return True
+    return  (not df.empty and df['quantity'].iloc[0] >= quantity)
 
 
 # En caso de que se quiera probar solo este ejercicio, descomentar las siguientes lineas
