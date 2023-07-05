@@ -62,17 +62,17 @@ def is_product_available(product_name, quantity):
 
 # En caso de que se quiera probar solo este ejercicio, descomentar las siguientes lineas
 
-if __name__ == "__main__":
-    product_name = input("Ingrese el nombre del producto: ")
-    quantity = int(input("Ingrese la cantidad del producto: "))
-    try:
-        available = is_product_available(product_name, quantity)
-        while not available:
-            print("El producto no esta disponible, pruebe nuevamente")
-            product_name = input("Ingrese el nombre del producto: ")
-            quantity = int(input("Ingrese la cantidad del producto: "))
-            available = is_product_available(product_name, quantity)
-        print("El producto esta disponible")
-    except Exception as e:
-        print("No tiene mas intentos")
-        exit()
+# if __name__ == "__main__":
+#     product_name = input("Ingrese el nombre del producto: ")
+#     quantity = int(input("Ingrese la cantidad del producto: "))
+#     try:
+#         available = is_product_available(product_name, quantity)
+#         while not available:
+#             print("El producto no esta disponible, pruebe nuevamente")
+#             product_name = input("Ingrese el nombre del producto: ")
+#             quantity = int(input("Ingrese la cantidad del producto: "))
+#             available = is_product_available(product_name, quantity)
+#         print("El producto esta disponible")
+#     except Exception as e:
+#         print("No tiene mas intentos")
+#         exit()
